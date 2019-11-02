@@ -1,0 +1,8 @@
+{
+  "appId": "com.emmanuelaubrey.stencilchat",
+  "appName": "stencil-chat",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
