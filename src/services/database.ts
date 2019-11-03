@@ -29,7 +29,16 @@ class DatabaseController {
 	}
 
 	async addMessage(message: string): Promise<firebase.firestore.DocumentReference> {
-
+		try {
+			return await this.db.collection('messages').add({
+				uid: AuthService.user.displayName,
+				created: Date.now(),
+				message: message,
+				author: AuthService.user.displayName
+			});
+		}catch (err){
+			console.log("couldn't add message", err)
+		}
 	}
 }
 
