@@ -16,7 +16,7 @@ class DatabaseController {
 		.orderBy("created", "desc")
 		.limit(50)
 		.onSnapshot(querySnapshot => {
-			console.log(querySnapshot);
+			//console.log(querySnapshot);
 			let messages = [];
 			querySnapshot.forEach(doc => {
 				messages.push({
