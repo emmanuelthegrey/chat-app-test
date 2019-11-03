@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 import configfb from './config';
 import "firebase/auth";
-import { resolve } from 'dns';
 
 class AuthController {
 public user: firebase.User;

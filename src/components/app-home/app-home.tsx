@@ -85,7 +85,7 @@ export class AppHome {
 		  {this.messages.map(message => (
 			  <my-adorable-message
 			  key={message.id}
-			  id={message.uid}
+			  mam_id={message.uid}
 			  author={message.author}
 			  side={AuthService.user.uid === message.uid ? "right" : "left"}
 			  >
