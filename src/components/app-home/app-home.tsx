@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'app-home',
@@ -6,24 +6,48 @@ import { Component, h } from '@stencil/core';
 })
 export class AppHome {
 
+	@Element() el: HTMLElement;
+	@State() addingChat: boolean = false;
+	@State() message: string = "";
+	@State() messages: firebase.firestore.DocumentData[] = [];
+
+	private navCtrl: HTMLIonRouterElement = document.querySelector('ion-router');
+
   render() {
     return [
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>Home</ion-title>
+          <ion-title>TYMTC Stencil Chat</ion-title>
+		  <ion-buttons slot="start">
+			  <ion-button>
+				  <ion-icon slot="icon-only" name="log-out" />
+			  </ion-button>
+		  </ion-buttons>
         </ion-toolbar>
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <p>
-          Welcome to the PWA Toolkit. You can use this starter to build entire
-          apps with web components using Stencil and ionic/core! Check out the
-          README for everything that comes in this starter out of the box and
-          check out our docs on <a href="https://stenciljs.com">stenciljs.com</a> to get started.
-        </p>
-
-        <ion-button href="/profile/ionic" expand="block">Profile page</ion-button>
-      </ion-content>
+		  <my-adorable-message
+		  id="234"
+		  author="MannyFresh"
+		  side="right"
+		  >
+			  Wazup Wassup wzup
+		  </my-adorable-message>
+	  </ion-content>,
+	  
+	  <ion-footer>
+		  <ion-toolbar>
+			  <ion-textarea class='chat-input' placeholder='type message...' />
+			  <ion-buttons slot='primary'>
+				  <ion-button disabled={this.addingChat}>
+					  <ion-icon hidden={this.addingChat} slot="icon-only"
+					  name='send' />
+					  <ion-spinner hidden={!this.addingChat} name='crescent' />
+				  </ion-button>
+			  </ion-buttons>
+		  </ion-toolbar>
+	  </ion-footer>
     ];
   }
 }
