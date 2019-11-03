@@ -1,5 +1,8 @@
 import { Component, h } from '@stencil/core';
 import { AuthService } from '../../services/auth';
+//import {  } from '../../services/database';
+
+
 
 @Component({
   tag: 'app-root',
@@ -9,6 +12,7 @@ export class AppRoot {
 
 	componentWillLoad() {
 		AuthService.init();
+		
 	}
 
   render() {

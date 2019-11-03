@@ -1,4 +1,6 @@
 import { Component, h, State, Element } from '@stencil/core';
+import { loadingController } from '@ionic/core';
+import { AuthService } from '../../services/auth';
 
 @Component({
   tag: 'app-home',
@@ -12,6 +14,27 @@ export class AppHome {
 	@State() messages: firebase.firestore.DocumentData[] = [];
 
 	private navCtrl: HTMLIonRouterElement = document.querySelector('ion-router');
+
+	async componentDidLoad() {
+		let loading = await this.createLoadingOverlay();
+		loading.present();
+
+		let isSignedIn = await AuthService.getCurrentAuth();
+
+		if(isSignedIn) {
+			loading.dismiss();
+		}else{
+			loading.dismiss();
+			this.navCtrl.push("/", "back");
+		}
+	}
+
+	async createLoadingOverlay(){
+		return await loadingController.create({
+			message: 'Authenticating',
+			spinner: 'crescent'
+		});
+	}
 
   render() {
     return [
