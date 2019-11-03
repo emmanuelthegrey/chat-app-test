@@ -1,10 +1,15 @@
 import { Component, h } from '@stencil/core';
+import { AuthService } from '../../services/auth';
 
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
+
+	componentWillLoad() {
+		AuthService.init();
+	}
 
   render() {
     return (
