@@ -1,5 +1,9 @@
 /* Document Level Styles */
-
+ion-content {
+	--background: rgb(177, 242, 224);
+	--background: linear-gradient(0deg, rgba(177, 242, 224, 1) 0%,
+	rgba(85, 239, 196, 1) 100%);
+	}
 /*
   The imports below are needed to include our light dom css for global styles such as fonts and colors.
   You can comment out any of these imports if you do not need that css. For example, if you have your own
@@ -29,3 +33,6 @@
   More info about color theming using Ionic:
   https://ionicframework.com/docs/theming/color-generator
 */
+:root {
+	--ion-color-primary: #3edcad;
+	}

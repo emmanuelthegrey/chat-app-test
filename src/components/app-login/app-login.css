@@ -1,0 +1,24 @@
+ion-item {
+  --background: transparent !important;
+  --border-radius: 0px !important;
+  --ion-item-border-color: #000;
+  --padding-start: 0px;
+}
+ion-label {
+  text-align: center;
+}
+.login-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.login-container img {
+  width: 50%;
+  margin: auto;
+  height: auto;
+}
+input {
+  text-align: center !important;
+  font-weight: bold !important;
+  font-size: 2em !important;
+}

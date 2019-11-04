@@ -52,7 +52,7 @@ export class AppLogin {
 						</ion-button>
 						<small>
 							Other users will be able to see your display name,
-							 but providing on is optional
+							 but providing one is optional
 						</small>
 					</div>
 				</div>
